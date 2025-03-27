@@ -1,48 +1,55 @@
 package ac.za.cput.domain;
 
+import java.lang.module.ModuleDescriptor;
+import java.util.Locale;
+
 public class Department {
-
-    private String departmentId;
     private String departmentName;
+    private String departmentId;
 
-private Department(Builder builder) {
 
-    this.departmentId = builder.departmentId;
-    this.departmentName = builder.departmentName;
-}
-
-public String getDepartmentIdId() {
-
-    return departmentId;
-}
-
-public String getDepartmentName() {
-
-    return departmentName;
-}
-
-@Override
-public String toString() {
-    return "Department{" +
-            "DepartmentId='" + departmentId + '\'' +
-            ", departmentName='" + departmentName + '\'' +
-            '}';
-}
-    public static class Builder {
-
+    private Department() {
     }
+    private  Department(Builder builder){
+        this.departmentName = builder.departmentName;
+        this.departmentId = builder.departmentId;
+    }
+
+    public String getDepartmentName() {
+        return DepartmentName;
+    }
+
+    public String getDepartmentId() {
+        return DeparmentId;
+    }
+
+    public String getDepartmentId() {
+        return departmentId;
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "departmentName='" + departmentName + '\'' +
+                ", departmentId='" + departmentId + '\'' +
+                '}';
+    }
+
+    public static class Builder {
+        private String departmentName;
         private String departmentId;
 
-        private String departmentName;
-
-
-        public Department.Builder setDepartmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-        public Department.Builder setDepartmentName(String departmentName) {
+        public Builder setDepartmentName(String departmentName) {
             this.departmentName = departmentName;
             return this;
         }
+        public Builder setDepartmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+        public Department build(){
+
+            return new Department(this);}
+
     }
+}
